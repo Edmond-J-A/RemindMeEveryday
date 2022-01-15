@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>resource/cc-close-crude.png</file>
+        <file>resource/setIcon.png</file>
+    </qresource>
+</RCC>
