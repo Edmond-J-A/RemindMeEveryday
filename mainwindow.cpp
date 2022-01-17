@@ -6,12 +6,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QList<QLineEdit*> leidts = findChildren<QLineEdit *>();
+    int j=0;
+    for(auto i = leidts.begin();i!=leidts.end();i++)
+    {
+        (*i)->move(20,j*30+25);
+        (*i)->resize(360,40);
+        (*i)->setText("");
+        j++;
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 void MainWindow::mousePressEvent(QMouseEvent * event)
 {
     if (event->button() == Qt::LeftButton) //LeftButton clicked
@@ -20,11 +30,8 @@ void MainWindow::mousePressEvent(QMouseEvent * event)
          //globalPos()获取根窗口的相对路径，frameGeometry().topLeft()获取主窗口左上角的位置
          event->accept();   //get mouse event
     }
-    /*if (event->button() == Qt::RightButton)
-    {
-         close();
-    }*/
 }
+
 void MainWindow::mouseMoveEvent(QMouseEvent * event)
 {
     if (event->buttons() == Qt::LeftButton) //LeftButton clicked
@@ -33,11 +40,11 @@ void MainWindow::mouseMoveEvent(QMouseEvent * event)
          event->accept();
     }
 }
+
 void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
     p.setPen(Qt::NoPen);
-    /* 设置红色 */
     QColor riceYellow(255,247,209);
     p.setBrush(riceYellow);
     p.drawRect(rect());
@@ -51,7 +58,28 @@ void MainWindow::paintEvent(QPaintEvent *event)
     }
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_closeButton_clicked()
 {
     close();
+}
+
+void MainWindow::on_setButton_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    Item temp("test",0,"10:00-1100",true);
+    this->menu.Additem(temp);
+    vector<QLineEdit *> newlines=this->menu.Show();
+    QList<QLineEdit*> leidts = findChildren<QLineEdit *>();
+    int j=0;
+    for(auto i = leidts.begin();i!=leidts.end();i++)
+    {
+        (*i)->move((newlines[j]->x()),(newlines[j]->y()));
+        (*i)->resize((newlines[j]->width()),(newlines[j]->height()));
+        (*i)->setText(newlines[j]->text());
+        j++;
+    }
 }

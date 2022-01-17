@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QtGui>
 #include<QPen>
+#include"menutable.h"
+using namespace std;
 namespace Ui {
 class MainWindow;
 }
@@ -19,9 +21,14 @@ public:
     void mouseMoveEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
 private slots:
+    void on_closeButton_clicked();
+
+    void on_setButton_clicked();
+
     void on_pushButton_clicked();
 
 private:
+    MenuTable menu;
     QPoint dragPosition;
     Ui::MainWindow *ui;
 };
