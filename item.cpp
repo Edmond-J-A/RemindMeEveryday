@@ -45,3 +45,8 @@ string Item::Getname()
 {
     return  this->name;
 }
+
+vector<int> Item::Stringtimetoint()
+{
+
+}

@@ -1,6 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 #include<iostream>
+#include<vector>
 using namespace std;
 class Item
 {
@@ -11,6 +12,8 @@ private:
     bool checkable;
     bool isvisible;
     int ID;
+    bool done=0;
+    bool repeat[7]={0};
 public:
     Item();
     Item(string name,int priority,string timeRange,bool checkable);
@@ -20,5 +23,6 @@ public:
     void SetID(int ID);
     string Getname();
     ~Item();
+    vector<int> Stringtimetoint();
 };
 #endif // ITEM_H

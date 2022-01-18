@@ -3,6 +3,7 @@
 #include"item.h"
 #include<vector>
 #include<qlineedit.h>
+#include <regex>
 using namespace std;
 class MenuTable
 {

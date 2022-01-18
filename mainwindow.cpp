@@ -7,13 +7,18 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QList<QLineEdit*> leidts = findChildren<QLineEdit *>();
-    int j=0;
-    for(auto i = leidts.begin();i!=leidts.end();i++)
+    int k=0;
+    QList<QCheckBox*> checkbs = findChildren<QCheckBox *>();
+    auto j=checkbs.begin();
+    for(auto i = leidts.begin();i!=leidts.end();i++,j++)
     {
-        (*i)->move(20,j*30+25);
+        (*i)->move(30,k*30+25);
         (*i)->resize(360,40);
         (*i)->setText("");
-        j++;
+        k++;
+        (*j)->setVisible(0);
+        (*j)->resize(31,31);
+        (*j)->move(5,k*30);
     }
 }
 
@@ -22,6 +27,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//make the window dragable
 void MainWindow::mousePressEvent(QMouseEvent * event)
 {
     if (event->button() == Qt::LeftButton) //LeftButton clicked
@@ -32,6 +38,7 @@ void MainWindow::mousePressEvent(QMouseEvent * event)
     }
 }
 
+//make the window dragable
 void MainWindow::mouseMoveEvent(QMouseEvent * event)
 {
     if (event->buttons() == Qt::LeftButton) //LeftButton clicked
@@ -41,6 +48,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent * event)
     }
 }
 
+//draw UI
 void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
@@ -58,11 +66,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
     }
 }
 
+//close button
 void MainWindow::on_closeButton_clicked()
 {
     close();
 }
 
+//set button
 void MainWindow::on_setButton_clicked()
 {
 
@@ -70,16 +80,25 @@ void MainWindow::on_setButton_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    Item temp("test",0,"10:00-1100",true);
+    Item temp("test",0,"10:00-11:00",true);
     this->menu.Additem(temp);
     vector<QLineEdit *> newlines=this->menu.Show();
     QList<QLineEdit*> leidts = findChildren<QLineEdit *>();
-    int j=0;
+    QList<QCheckBox*> checkbs = findChildren<QCheckBox *>();
+
+    int k=0;
+    auto j=checkbs.begin();
     for(auto i = leidts.begin();i!=leidts.end();i++)
     {
-        (*i)->move((newlines[j]->x()),(newlines[j]->y()));
-        (*i)->resize((newlines[j]->width()),(newlines[j]->height()));
-        (*i)->setText(newlines[j]->text());
+        (*i)->move((newlines[k]->x()),(newlines[k]->y()));
+        (*i)->resize((newlines[k]->width()),(newlines[k]->height()));
+        (*i)->setText(newlines[k]->text());
+        k++;
+
+        if((*i)->text().size()!=0)
+        {
+            (*j)->setVisible(1);
+        }
         j++;
     }
 }

@@ -647,6 +647,666 @@ QLineEdit:hover
      <string>a</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>290</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>290</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_3">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>300</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_4">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>310</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_5">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>320</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_6">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>330</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_7">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>340</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_8">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_9">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_10">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_11">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QCheckBox{
+	border: none;/*最外层边框*/
+}
+QCheckBox::indicator{/*选择框尺寸*/
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #b1b1b1;
+	width: 30px;
+	height: 30px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+ 	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+ 
+QCheckBox::indicator:unchecked {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:hover {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:unchecked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+QCheckBox::indicator:checked {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:hover {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+QCheckBox::indicator:checked:pressed {
+        image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>label</zorder>
    <zorder>setButton</zorder>
    <zorder>closeButton</zorder>
@@ -662,6 +1322,17 @@ QLineEdit:hover
    <zorder>lineEdit_9</zorder>
    <zorder>lineEdit_10</zorder>
    <zorder>lineEdit_11</zorder>
+   <zorder>checkBox</zorder>
+   <zorder>checkBox_2</zorder>
+   <zorder>checkBox_3</zorder>
+   <zorder>checkBox_4</zorder>
+   <zorder>checkBox_5</zorder>
+   <zorder>checkBox_6</zorder>
+   <zorder>checkBox_7</zorder>
+   <zorder>checkBox_8</zorder>
+   <zorder>checkBox_9</zorder>
+   <zorder>checkBox_10</zorder>
+   <zorder>checkBox_11</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="sizeGripEnabled">

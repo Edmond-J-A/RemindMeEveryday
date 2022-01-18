@@ -20,6 +20,7 @@ void MenuTable::Sort(int method)
     }
 }
 
+//return the top 11 items' iterater to show in UI
 vector<QLineEdit *> MenuTable::Show()
 {
     vector<QLineEdit *> result;
@@ -27,7 +28,7 @@ vector<QLineEdit *> MenuTable::Show()
     {
         QLineEdit *newedit=new QLineEdit;
         newedit->resize(360,40);
-        newedit->move(20,i*30+25);
+        newedit->move(30,i*30+25);
         if(i<this->table.size())
         {
             newedit->setText(QString::fromStdString(this->table[i].Getname()));
@@ -42,6 +43,7 @@ vector<QLineEdit *> MenuTable::Show()
     return result;
 }
 
+//add an item
 void MenuTable::Additem(Item newitem)
 {
 
@@ -51,11 +53,13 @@ void MenuTable::Additem(Item newitem)
     this->Sort();
 }
 
+//be called when an item is finished
 void MenuTable::Doneitem(int itemID)
 {
 
 }
 
+//delete an item
 void MenuTable::Deleteitem(int itemID)
 {
     for(int i = 0 ;i < this->table.size();i++)
@@ -70,21 +74,25 @@ void MenuTable::Deleteitem(int itemID)
     this->nowID--;
 }
 
+//Edit a exist item
 void MenuTable::Edititem(int itemID)
 {
 
 }
 
+//Find a exist item by return its ID
 int MenuTable::Finditem(string name)
 {
 
 }
 
+//save the items to txt when closed
 void MenuTable::Savetofile(string filename)
 {
 
 }
 
+//read items from txt when started
 void MenuTable::Loadbyfile(string filename)
 {
 
