@@ -21,26 +21,26 @@ void MenuTable::Sort(int method)
 }
 
 //return the top 11 items' iterater to show in UI
-vector<QLineEdit *> MenuTable::Show()
+void MenuTable::Show(QWidget *parent)
 {
-    vector<QLineEdit *> result;
     for(int i = 0;i < 11;i++)
     {
-        QLineEdit *newedit=new QLineEdit;
-        newedit->resize(360,40);
-        newedit->move(30,i*30+25);
         if(i<this->table.size())
         {
-            newedit->setText(QString::fromStdString(this->table[i].Getname()));
-            result.push_back(newedit);
+            this->table[i].Setvisible(1);
+            this->table[i].Getledit()->move(30,i*30+25);
+            this->table[i].Getcbox()->move(5,i*30+30);
         }
         else
         {
-            newedit->setText(QString(""));
-            result.push_back(newedit);
+            Item temp("",0,"00:00-0:00",parent);
+            temp.Setvisible(1);
+            temp.Getledit()->move(30,i*30+25);
+            temp.Getcbox()->move(5,i*30+30);
+            this->Additem(temp);
         }
+
     }
-    return result;
 }
 
 //add an item
@@ -60,7 +60,7 @@ void MenuTable::Doneitem(int itemID)
 }
 
 //delete an item
-void MenuTable::Deleteitem(int itemID)
+void MenuTable::Deleteitem(int itemID,QWidget *parent)
 {
     for(int i = 0 ;i < this->table.size();i++)
     {
@@ -68,23 +68,46 @@ void MenuTable::Deleteitem(int itemID)
         {
             this->table.erase(this->table.begin()+i);
         }
+        else if(itemID < (this->table[i]).GetID())
+        {
+            this->table[i].SetID(this->table[i].GetID()-1);
+        }
     }
-                                //此处ID重新排列
-
+    this->Show(parent);
     this->nowID--;
 }
 
 //Edit a exist item
-void MenuTable::Edititem(int itemID)
+void MenuTable::Edititem(int itemID,QWidget *parent,string name,string ID,string time)
 {
-
+    if(name.size()!=0)
+    {
+        this->table[itemID].Setname(name);
+    }
+    if(ID.size()!=0)
+    {
+        this->table[itemID].SetID(QString::fromStdString(ID).toInt());
+    }
+    if(time.size()!=0)
+    {
+        this->table[itemID].Settime(time);
+    }
+    Show(parent);
 }
 
 //Find a exist item by return its ID
 int MenuTable::Finditem(string name)
 {
-
+    for(int i=0;i<table.size();i++)
+    {
+        if(table[i].Getname()==name)
+        {
+            return table[i].GetID();
+        }
+    }
+    return -1;
 }
+
 
 //save the items to txt when closed
 void MenuTable::Savetofile(string filename)

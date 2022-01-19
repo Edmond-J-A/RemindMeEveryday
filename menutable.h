@@ -8,16 +8,16 @@ using namespace std;
 class MenuTable
 {
 private:
-    vector<Item> table;
+    vector<Item> table,donetable;
     int nowID=0;
 public:
     MenuTable(){}
     void Sort(int method=0);
-    vector<QLineEdit *> Show();
+    void Show(QWidget *parent);
     void Additem(Item newitem);
     void Doneitem(int itemID);
-    void Deleteitem(int itemID);
-    void Edititem(int itemID);
+    void Deleteitem(int itemID,QWidget *parent);
+    void Edititem(int itemID,QWidget *parent,string name="",string ID="",string time="");
     int Finditem(string name);
     void Loadbyfile(string filename);
     void Savetofile(string filename);

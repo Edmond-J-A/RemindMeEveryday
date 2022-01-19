@@ -27,6 +27,7 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void editfinished();
 private:
     MenuTable menu;
     QPoint dragPosition;

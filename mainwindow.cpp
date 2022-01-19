@@ -6,20 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QList<QLineEdit*> leidts = findChildren<QLineEdit *>();
-    int k=0;
-    QList<QCheckBox*> checkbs = findChildren<QCheckBox *>();
-    auto j=checkbs.begin();
-    for(auto i = leidts.begin();i!=leidts.end();i++,j++)
-    {
-        (*i)->move(30,k*30+25);
-        (*i)->resize(360,40);
-        (*i)->setText("");
-        k++;
-        (*j)->setVisible(0);
-        (*j)->resize(31,31);
-        (*j)->move(5,k*30);
-    }
+    this->menu.Show(this);
 }
 
 MainWindow::~MainWindow()
@@ -78,27 +65,16 @@ void MainWindow::on_setButton_clicked()
 
 }
 
+void MainWindow::editfinished()
+{
+    QLineEdit *lineEdit=qobject_cast<QLineEdit *>(sender());
+    int index=lineEdit->objectName().toInt();
+    this->menu.Edititem(index,this,lineEdit->text().toStdString());
+}
+
 void MainWindow::on_pushButton_clicked()
 {
-    Item temp("test",0,"10:00-11:00",true);
+    Item temp("test",0,"10:00-11:00",this,true);
     this->menu.Additem(temp);
-    vector<QLineEdit *> newlines=this->menu.Show();
-    QList<QLineEdit*> leidts = findChildren<QLineEdit *>();
-    QList<QCheckBox*> checkbs = findChildren<QCheckBox *>();
-
-    int k=0;
-    auto j=checkbs.begin();
-    for(auto i = leidts.begin();i!=leidts.end();i++)
-    {
-        (*i)->move((newlines[k]->x()),(newlines[k]->y()));
-        (*i)->resize((newlines[k]->width()),(newlines[k]->height()));
-        (*i)->setText(newlines[k]->text());
-        k++;
-
-        if((*i)->text().size()!=0)
-        {
-            (*j)->setVisible(1);
-        }
-        j++;
-    }
+    this->menu.Show(this);
 }
