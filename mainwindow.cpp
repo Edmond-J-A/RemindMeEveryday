@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->menu.Loadbyfile(this);
     this->menu.Show(this);
 }
 
@@ -56,13 +57,14 @@ void MainWindow::paintEvent(QPaintEvent *event)
 //close button
 void MainWindow::on_closeButton_clicked()
 {
+    this->menu.Savetofile();
     close();
 }
 
 //set button
 void MainWindow::on_setButton_clicked()
 {
-
+    QMessageBox::information(this,QString("Not Finished Yet"),QString("Not Finished Yet"));
 }
 
 void MainWindow::editfinished()
@@ -77,4 +79,14 @@ void MainWindow::on_pushButton_clicked()
     Item temp("test",0,"10:00-11:00",this,true);
     this->menu.Additem(temp);
     this->menu.Show(this);
+}
+
+void MainWindow::checked()
+{
+    QCheckBox *checkb=qobject_cast<QCheckBox *>(sender());
+    int index=checkb->objectName().toInt();
+    qDebug()<<index;
+    QTime _Timer = QTime::currentTime().addMSecs(500);
+    while( QTime::currentTime() < _Timer );
+    this->menu.Doneitem(index,this);
 }

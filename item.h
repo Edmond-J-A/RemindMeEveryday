@@ -7,6 +7,9 @@
 #include<QCheckBox>
 #include<QObject>
 #include<QDebug>
+#include<fstream>
+#include<QFile>
+#include <sstream>
 using namespace std;
 class Item
 {
@@ -25,6 +28,7 @@ public:
     Item();
 
     Item(string name,int priority,string timeRange,QWidget *parent,bool checkable=1);
+    Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool checkable=1);
     void Setvisible(bool visible);
     void Edit(string name,int priority,string timeRange,bool checkable);
     int GetID();
@@ -36,6 +40,17 @@ public:
     QLineEdit* Getledit();
     void Settime(string time);
     void Setname(string newname);
-
+    bool Getcheckable()
+    {
+        return this->checkable;
+    }
+    string Gettime()
+    {
+        return this->timeRange;
+    }
+    int Getpriority()
+    {
+        return this->priority;
+    }
 };
 #endif // ITEM_H

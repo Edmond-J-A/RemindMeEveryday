@@ -15,12 +15,14 @@ public:
     void Sort(int method=0);
     void Show(QWidget *parent);
     void Additem(Item newitem);
-    void Doneitem(int itemID);
+    void Doneitem(int itemID,QWidget *parent);
     void Deleteitem(int itemID,QWidget *parent);
-    void Edititem(int itemID,QWidget *parent,string name="",string ID="",string time="");
+    void Edititem(int itemID,QWidget *parent,string name="",string time="");
     int Finditem(string name);
-    void Loadbyfile(string filename);
-    void Savetofile(string filename);
+    void Loadbyfile(QWidget *parent);
+    void AdditemwithoutID(Item newitem);
+    void Additemtodone(Item newitem);
+    void Savetofile();
 };
 
 

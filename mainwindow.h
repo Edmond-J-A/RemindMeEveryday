@@ -5,6 +5,7 @@
 #include <QtGui>
 #include<QPen>
 #include"menutable.h"
+#include<QMessageBox>
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,8 @@ private slots:
     void on_pushButton_clicked();
 
     void editfinished();
+
+    void checked();
 private:
     MenuTable menu;
     QPoint dragPosition;

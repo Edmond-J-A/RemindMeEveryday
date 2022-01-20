@@ -5,5 +5,7 @@
         <file>resource/icon.png</file>
         <file>resource/checkbox-blank-circle-outline .png</file>
         <file>resource/checkbox-marked-circle-outline.png</file>
+        <file>save/savedonetable.txt</file>
+        <file>save/savetable.txt</file>
     </qresource>
 </RCC>
