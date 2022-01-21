@@ -41,8 +41,6 @@ void MenuTable::Show(QWidget *parent)
         }
 
     }
-    qDebug()<<this->table.size();
-    qDebug()<<this->donetable.size();
 }
 
 //add an item
@@ -154,11 +152,9 @@ void MenuTable::Savetofile()
     string path=getenv("USERPROFILE");
     path+=+"\\AppData\\savetable.txt";
     QFile file(QString::fromStdString(path));
-    qDebug()<<1;
     file.resize(0);
     if(file.open( QIODevice::ReadWrite| QIODevice::Text))
     {
-        qDebug()<<-2;
         for(int i=0;i<int(table.size());i++)
         {
             if(table[i].Getname().size()==0)
@@ -166,7 +162,6 @@ void MenuTable::Savetofile()
                 continue;
             }
             wrt+=QString::number(table[i].GetID())+","+QString::fromStdString(table[i].Getname())+","+QString::number(table[i].Getpriority())+","+QString::fromStdString(table[i].Gettime())+","+QString::number(table[i].Getcheckable())+"\n";
-            qDebug()<<wrt;
             file.write(wrt.toUtf8());
             wrt.clear();
         }
@@ -186,7 +181,6 @@ void MenuTable::Savetofile()
                 continue;
             }
             wrt+=QString::number(donetable[i].GetID())+","+QString::fromStdString(donetable[i].Getname())+","+QString::number(donetable[i].Getpriority())+","+QString::fromStdString(donetable[i].Gettime())+","+QString::number(donetable[i].Getcheckable())+"\n";
-            qDebug()<<wrt;
             file1.write(wrt.toUtf8());
             wrt.clear();
         }
@@ -204,13 +198,11 @@ void MenuTable::Loadbyfile(QWidget *parent)
     QFile file(QString::fromStdString(path));
     if (!file.open(QIODevice::ReadOnly))
     {
-        qDebug()<<-200;
     }
     else
     {
         while (!file.atEnd())
         {
-            qDebug()<<-200;
             QByteArray line = file.readLine();
             QString str(line);
             QStringList sections = str.split(QRegExp("[,]"));
@@ -221,7 +213,6 @@ void MenuTable::Loadbyfile(QWidget *parent)
                     getidmax=sections[0].toInt();
                 }
                 Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt());
-                qDebug()<<sections[2].toInt();
                 this->AdditemwithoutID(temp);
 
             }

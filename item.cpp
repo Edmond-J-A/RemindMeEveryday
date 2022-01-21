@@ -225,6 +225,7 @@ string Item::Getname()
 void Item::Setname(string newname)
 {
     this->name=newname;
+    this->ledit->setText(QString::fromStdString(newname));
 }
 
 vector<int> Item::Stringtimetoint()
