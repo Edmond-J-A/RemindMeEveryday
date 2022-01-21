@@ -39,3 +39,5 @@ FORMS += \
 
 RESOURCES += \
     image.qrc
+
+RC_FILE = icon.rc
