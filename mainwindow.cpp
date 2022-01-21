@@ -58,6 +58,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 void MainWindow::on_closeButton_clicked()
 {
     this->menu.Savetofile();
+    qDebug()<<-100;
     close();
 }
 
@@ -86,7 +87,7 @@ void MainWindow::checked()
     QCheckBox *checkb=qobject_cast<QCheckBox *>(sender());
     int index=checkb->objectName().toInt();
     qDebug()<<index;
-    QTime _Timer = QTime::currentTime().addMSecs(500);
+    QTime _Timer = QTime::currentTime().addMSecs(300);
     while( QTime::currentTime() < _Timer );
     this->menu.Doneitem(index,this);
 }

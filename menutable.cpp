@@ -150,39 +150,67 @@ int MenuTable::Finditem(string name)
 //save the items to txt when closed
 void MenuTable::Savetofile()
 {
-    ofstream txt(":/new/prefix1/save/savetable.txt");
-    if(txt.is_open())
+    QString wrt="";
+    string path=getenv("USERPROFILE");
+    path+=+"\\AppData\\savetable.txt";
+    QFile file(QString::fromStdString(path));
+    qDebug()<<1;
+    file.resize(0);
+    if(file.open( QIODevice::ReadWrite| QIODevice::Text))
     {
+        qDebug()<<-2;
         for(int i=0;i<int(table.size());i++)
         {
-            txt<<table[i].GetID()<<","<<table[i].Getname()<<","<<table[i].Getpriority()<<","<<table[i].Gettime()<<","<<table[i].Getcheckable()<<"\r\n";
+            if(table[i].Getname().size()==0)
+            {
+                continue;
+            }
+            wrt+=QString::number(table[i].GetID())+","+QString::fromStdString(table[i].Getname())+","+QString::number(table[i].Getpriority())+","+QString::fromStdString(table[i].Gettime())+","+QString::number(table[i].Getcheckable())+"\n";
+            qDebug()<<wrt;
+            file.write(wrt.toUtf8());
+            wrt.clear();
         }
+
     }
-    txt.close();
-    ofstream txt1(":/new/prefix1/save/savedonetable.txt");
-    if(txt1.is_open())
+    wrt.clear();
+    path=getenv("USERPROFILE");
+    path+="\\AppData\\savedonetable.txt";
+    QFile file1(QString::fromStdString(path));
+    file1.resize(0);
+    if(file1.open( QIODevice::ReadWrite))
     {
         for(int i=0;i<int(donetable.size());i++)
         {
-            txt1<<donetable[i].GetID()<<","<<donetable[i].Getname()<<","<<donetable[i].Getpriority()<<","<<donetable[i].Gettime()<<","<<donetable[i].Getcheckable()<<"\r\n";
+            if(donetable[i].Getname().size()==0)
+            {
+                continue;
+            }
+            wrt+=QString::number(donetable[i].GetID())+","+QString::fromStdString(donetable[i].Getname())+","+QString::number(donetable[i].Getpriority())+","+QString::fromStdString(donetable[i].Gettime())+","+QString::number(donetable[i].Getcheckable())+"\n";
+            qDebug()<<wrt;
+            file1.write(wrt.toUtf8());
+            wrt.clear();
         }
+
     }
-    txt1.close();
 }
 
 //read items from txt when started
 void MenuTable::Loadbyfile(QWidget *parent)
 {
     int getidmax=0;
-    QFile file(":/new/prefix1/save/savetable.txt");
-    if (!file.open(QIODevice::ReadOnly ))
+    string path=getenv("USERPROFILE");
+    path+="\\AppData\\savetable.txt";
+    qDebug()<<QString::fromStdString(path);
+    QFile file(QString::fromStdString(path));
+    if (!file.open(QIODevice::ReadOnly))
     {
-
+        qDebug()<<-200;
     }
     else
     {
         while (!file.atEnd())
         {
+            qDebug()<<-200;
             QByteArray line = file.readLine();
             QString str(line);
             QStringList sections = str.split(QRegExp("[,]"));
@@ -193,13 +221,16 @@ void MenuTable::Loadbyfile(QWidget *parent)
                     getidmax=sections[0].toInt();
                 }
                 Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt());
-                qDebug()<<temp.GetID()<<QString::fromStdString(temp.Getname());
+                qDebug()<<sections[2].toInt();
                 this->AdditemwithoutID(temp);
+
             }
         }
     }
-    QFile file1(":/new/prefix1/save/savedonetable.txt");
-    if (!file1.open(QIODevice::ReadOnly ))
+    path=getenv("USERPROFILE");
+    path+="\\AppData\\savedonetable.txt";
+    QFile file1(QString::fromStdString(path));
+    if (!file1.open(QIODevice::ReadOnly))
     {
 
     }
@@ -222,5 +253,4 @@ void MenuTable::Loadbyfile(QWidget *parent)
         }
     }
     this->nowID=getidmax+1;
-    qDebug()<<nowID;
 }
