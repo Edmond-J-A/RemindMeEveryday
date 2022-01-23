@@ -6,6 +6,7 @@
 #include<QPen>
 #include"menutable.h"
 #include<QMessageBox>
+#include<setting.h>
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -31,8 +32,12 @@ private slots:
     void editfinished();
 
     void checked();
+
+    void receivecolor(int mode,QColor c);
 private:
+    Setting *setting;
     MenuTable menu;
+    QColor backgroundcolor,barcolor;
     QPoint dragPosition;
     Ui::MainWindow *ui;
 };

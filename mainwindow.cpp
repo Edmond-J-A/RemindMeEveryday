@@ -8,6 +8,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->menu.Loadbyfile(this);
     this->menu.Show(this);
+
+    backgroundcolor=QColor(255,247,209);
+    barcolor=QColor(255, 213, 129);
+    setting=new Setting(barcolor,backgroundcolor);
+    QString barcolortxt="background-color:rgb("+QString::number(barcolor.red())+"," +QString::number(barcolor.green())+"," +QString::number(barcolor.blue())+") ;";
+    ui->label->setStyleSheet(
+                barcolortxt
+                );
+    this->setting->changebarcolor(barcolor);
+    connect(setting,SIGNAL(sendcolor(int,QColor)),this,SLOT(receivecolor(int,QColor)));
+
 }
 
 MainWindow::~MainWindow()
@@ -41,11 +52,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
     p.setPen(Qt::NoPen);
-    QColor riceYellow(255,247,209);
-    p.setBrush(riceYellow);
+    p.setBrush(this->backgroundcolor);
     p.drawRect(rect());
     QPen drawLine;
-    drawLine.setColor(QColor(255, 213, 129));
+    drawLine.setColor(this->barcolor);
     drawLine.setWidth(2);
     p.setPen(drawLine);
     for(int i=1;i<12;i++)
@@ -58,13 +68,14 @@ void MainWindow::paintEvent(QPaintEvent *event)
 void MainWindow::on_closeButton_clicked()
 {
     this->menu.Savetofile();
+    this->setting->close();
     close();
 }
 
 //set button
 void MainWindow::on_setButton_clicked()
 {
-    QMessageBox::information(this,QString("Not Finished Yet"),QString("Not Finished Yet"));
+    setting->show();
 }
 
 void MainWindow::editfinished()
@@ -96,4 +107,22 @@ void MainWindow::checked()
     QTime _Timer = QTime::currentTime().addMSecs(300);
     while( QTime::currentTime() < _Timer );
     this->menu.Doneitem(index,this);
+}
+
+void MainWindow::receivecolor(int mode,QColor c)
+{
+    if(mode==0)
+    {
+        this->backgroundcolor=c;
+        repaint();
+    }
+    else if(mode==1)
+    {
+        this->barcolor=c;
+        QString barcolortxt="background-color:rgb("+QString::number(barcolor.red())+"," +QString::number(barcolor.green())+"," +QString::number(barcolor.blue())+") ;";
+        ui->label->setStyleSheet(
+                    barcolortxt
+                    );
+        repaint();
+    }
 }
