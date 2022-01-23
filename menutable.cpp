@@ -150,7 +150,7 @@ void MenuTable::Savetofile()
 {
     QString wrt="";
     string path=getenv("USERPROFILE");
-    path+=+"\\AppData\\savetable.txt";
+    path+=+"\\AppData\\savetable.item";
     QFile file(QString::fromStdString(path));
     file.resize(0);
     if(file.open( QIODevice::ReadWrite| QIODevice::Text))
@@ -169,7 +169,7 @@ void MenuTable::Savetofile()
     }
     wrt.clear();
     path=getenv("USERPROFILE");
-    path+="\\AppData\\savedonetable.txt";
+    path+="\\AppData\\savedonetable.item";
     QFile file1(QString::fromStdString(path));
     file1.resize(0);
     if(file1.open( QIODevice::ReadWrite))
@@ -193,7 +193,7 @@ void MenuTable::Loadbyfile(QWidget *parent)
 {
     int getidmax=0;
     string path=getenv("USERPROFILE");
-    path+="\\AppData\\savetable.txt";
+    path+="\\AppData\\savetable.item";
     qDebug()<<QString::fromStdString(path);
     QFile file(QString::fromStdString(path));
     if (!file.open(QIODevice::ReadOnly))
@@ -219,7 +219,7 @@ void MenuTable::Loadbyfile(QWidget *parent)
         }
     }
     path=getenv("USERPROFILE");
-    path+="\\AppData\\savedonetable.txt";
+    path+="\\AppData\\savedonetable.item";
     QFile file1(QString::fromStdString(path));
     if (!file1.open(QIODevice::ReadOnly))
     {

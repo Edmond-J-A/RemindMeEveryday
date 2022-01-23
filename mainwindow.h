@@ -22,6 +22,7 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
+    void initial();
 private slots:
     void on_closeButton_clicked();
 
