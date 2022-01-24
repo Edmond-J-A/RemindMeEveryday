@@ -6,5 +6,9 @@
         <file>resource/checkbox-blank-circle-outline .png</file>
         <file>resource/checkbox-marked-circle-outline.png</file>
         <file>resource/plus.png</file>
+        <file>resource/back.png</file>
+        <file>resource/forward.png</file>
+        <file>resource/treasurebox-blank.png</file>
+        <file>resource/treasurebox-marked.png</file>
     </qresource>
 </RCC>

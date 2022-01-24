@@ -23,23 +23,28 @@ void MenuTable::Sort(int method)
 //return the top 11 items' iterater to show in UI
 void MenuTable::Show(QWidget *parent)
 {
-    for(int i = 0;i < 11;i++)
+    int i=0;
+    for(int j = 0;j < table.size();j++)
     {
-        if(i<int(this->table.size()))
+        if(j>=this->page*11&&j<this->page*11+11)
         {
-            this->table[i].Setvisible(1);
-            this->table[i].Getledit()->move(30,i*30+25);
-            this->table[i].Getcbox()->move(5,i*30+30);
+            this->table[j].Setvisible(1);
+            this->table[j].Getledit()->move(30,i*30+25);
+            this->table[j].Getcbox()->move(5,i*30+30);
+            i++;
         }
         else
         {
-            Item temp("",0,"00:00-0:00",parent);
-            temp.Setvisible(1);
-            temp.Getledit()->move(30,i*30+25);
-            temp.Getcbox()->move(5,i*30+30);
-            this->Additem(temp);
+            this->table[j].Setvisible(0);
         }
-
+    }
+    while (i<11) {
+        Item temp("",0,"00:00-0:00",parent);
+        temp.Setvisible(1);
+        temp.Getledit()->move(30,i*30+25);
+        temp.Getcbox()->move(5,i*30+30);
+        this->Additem(temp);
+        i++;
     }
 }
 
@@ -53,12 +58,14 @@ void MenuTable::Additem(Item newitem)
     this->Sort();
 }
 
+//for load function to load items which already have ID
 void MenuTable::AdditemwithoutID(Item newitem)
 {
     this->table.push_back(newitem);
     this->Sort();
 }
 
+//load done items to donetable
 void MenuTable::Additemtodone(Item newitem)
 {
     this->donetable.push_back(newitem);
@@ -76,6 +83,12 @@ void MenuTable::Doneitem(int itemID,QWidget *parent)
             this->table[i].Setvisible(0);
             this->table.erase(this->table.begin()+i);
             this->donetable.push_back(temp);
+            break;
+        }
+        else if(itemID==this->table[i].GetID()&&this->table[i].Getname()=="")
+        {
+            this->table[i].Getcbox()->setChecked(0);
+            break;
         }
     }
     this->Show(parent);
@@ -244,4 +257,24 @@ void MenuTable::Loadbyfile(QWidget *parent)
         }
     }
     this->nowID=getidmax+1;
+}
+
+//show next page
+void MenuTable::addpage(QWidget *parent)
+{
+    if((this->page+1)*11<this->table.size())
+    {
+        this->page++;
+    }
+    this->Show(parent);
+}
+
+//show last page
+void MenuTable::subpage(QWidget *parent)
+{
+    if(this->page>0)
+    {
+        this->page--;
+    }
+    this->Show(parent);
 }

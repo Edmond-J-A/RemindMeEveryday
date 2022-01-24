@@ -10,6 +10,7 @@ class MenuTable
 private:
     vector<Item> table,donetable;
     int nowID=0;
+    int page=0;
 public:
     MenuTable(){}
     void Sort(int method=0);
@@ -23,6 +24,8 @@ public:
     void AdditemwithoutID(Item newitem);
     void Additemtodone(Item newitem);
     void Savetofile();
+    void addpage(QWidget *parent);
+    void subpage(QWidget *parent);
 };
 
 

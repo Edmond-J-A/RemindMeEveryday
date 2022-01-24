@@ -73,23 +73,11 @@ Item::Item(string name,int priority,string timeRange,QWidget *parent,bool checka
                 "}"
 
                 "QCheckBox::indicator:unchecked {"
-                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
-                "}"
-                "QCheckBox::indicator:unchecked:hover {"
-                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
-                "}"
-                "QCheckBox::indicator:unchecked:pressed {"
-                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
+                        "image: url(:/new/prefix1/resource/treasurebox-blank.png);"
                 "}"
                 "QCheckBox::indicator:checked {"
-                        "image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);"
+                        "image: url(:/new/prefix1/resource/treasurebox-marked.png);"
                 "}"
-                "QCheckBox::indicator:checked:hover {"
-                        "image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);"
-                "}"
-                "QCheckBox::indicator:checked:pressed {"
-                        "image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);"
-                "} "
                 );
     cbox->resize(31,31);
 }
@@ -163,23 +151,11 @@ Item::Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool
                 "}"
 
                 "QCheckBox::indicator:unchecked {"
-                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
-                "}"
-                "QCheckBox::indicator:unchecked:hover {"
-                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
-                "}"
-                "QCheckBox::indicator:unchecked:pressed {"
-                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
+                        "image: url(:/new/prefix1/resource/treasurebox-blank.png);"
                 "}"
                 "QCheckBox::indicator:checked {"
-                        "image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);"
+                        "image: url(:/new/prefix1/resource/treasurebox-marked.png);"
                 "}"
-                "QCheckBox::indicator:checked:hover {"
-                        "image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);"
-                "}"
-                "QCheckBox::indicator:checked:pressed {"
-                        "image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);"
-                "} "
                 );
     cbox->resize(31,31);
 

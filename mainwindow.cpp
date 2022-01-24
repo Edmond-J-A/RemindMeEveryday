@@ -127,6 +127,7 @@ void MainWindow::on_setButton_clicked()
     setting->show();
 }
 
+//this will be called when an item's editing is finished
 void MainWindow::editfinished()
 {
     QLineEdit *lineEdit=qobject_cast<QLineEdit *>(sender());
@@ -149,6 +150,7 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
+//this will be called when a check box is checked
 void MainWindow::checked()
 {
     QCheckBox *checkb=qobject_cast<QCheckBox *>(sender());
@@ -158,6 +160,7 @@ void MainWindow::checked()
     this->menu.Doneitem(index,this);
 }
 
+//receive bar/background color sended from setting
 void MainWindow::receivecolor(int mode,QColor c)
 {
     if(mode==0)
@@ -174,4 +177,16 @@ void MainWindow::receivecolor(int mode,QColor c)
                     );
         repaint();
     }
+}
+
+//move to last page
+void MainWindow::on_pushButton_back_clicked()
+{
+    this->menu.subpage(this);
+}
+
+//move to next page
+void MainWindow::on_pushButton_next_clicked()
+{
+    this->menu.addpage(this);
 }

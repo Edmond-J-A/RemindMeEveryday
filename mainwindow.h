@@ -35,6 +35,10 @@ private slots:
     void checked();
 
     void receivecolor(int mode,QColor c);
+    void on_pushButton_back_clicked();
+
+    void on_pushButton_next_clicked();
+
 private:
     Setting *setting;
     MenuTable menu;

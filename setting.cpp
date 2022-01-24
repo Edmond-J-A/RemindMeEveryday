@@ -8,6 +8,32 @@ Setting::Setting(QColor bar,QColor back,QWidget *parent) :
     ui->setupUi(this);
     backgroundcolor=back;
     barcolor=bar;
+    QString ccolortxt="background-color:rgb("+QString::number(backgroundcolor.red())+"," +QString::number(backgroundcolor.green())+"," +QString::number(backgroundcolor.blue())+") ;";
+    ui->changebackButton->setStyleSheet(
+                "QPushButton{"
+                    +ccolortxt+
+                    "border-style:outset;"
+                    "border-width:4px;"
+                    "border-radius:20px;"
+                    "border-color:rgba(0,0,0);"
+                    "color:rgba(0,0,0,100);"
+                    "padding:1px;"
+                    "font:1000 15pt \"黑体\";"
+                "}"
+                );
+    ccolortxt="background-color:rgb("+QString::number(barcolor.red())+"," +QString::number(barcolor.green())+"," +QString::number(barcolor.blue())+") ;";
+    ui->changebarButton->setStyleSheet(
+                "QPushButton{"
+                    +ccolortxt+
+                    "border-style:outset;"
+                    "border-width:4px;"
+                    "border-radius:20px;"
+                    "border-color:rgba(0,0,0);"
+                    "color:rgba(0,0,0,100);"
+                    "padding:1px;"
+                    "font:1000 15pt \"黑体\";"
+                "}"
+                );
 }
 
 Setting::~Setting()
@@ -54,7 +80,7 @@ void Setting::on_closeButton_clicked()
 {
     close();
 }
-
+//change the bar color
 void Setting::changebarcolor(QColor c)
 {
     QString ccolortxt="background-color:rgb("+QString::number(c.red())+"," +QString::number(c.green())+"," +QString::number(c.blue())+") ;";
@@ -63,6 +89,7 @@ void Setting::changebarcolor(QColor c)
                 );
 }
 
+//change the bar color button
 void Setting::on_changebarButton_clicked()
 {
     QColorDialog *a;
@@ -86,8 +113,7 @@ void Setting::on_changebarButton_clicked()
     emit sendcolor(1,c);
 }
 
-
-
+//change the background color button
 void Setting::on_changebackButton_clicked()
 {
     QColorDialog *a;
