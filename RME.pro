@@ -28,17 +28,20 @@ SOURCES += \
         mainwindow.cpp \
     item.cpp \
     menutable.cpp \
-    setting.cpp
+    setting.cpp \
+    add.cpp
 
 HEADERS += \
         mainwindow.h \
     item.h \
     menutable.h \
-    setting.h
+    setting.h \
+    add.h
 
 FORMS += \
         mainwindow.ui \
-    setting.ui
+    setting.ui \
+    add.ui
 
 RESOURCES += \
     image.qrc

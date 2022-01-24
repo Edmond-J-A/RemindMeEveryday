@@ -7,6 +7,7 @@
 #include"menutable.h"
 #include<QMessageBox>
 #include<setting.h>
+#include<add.h>
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -35,11 +36,13 @@ private slots:
     void checked();
 
     void receivecolor(int mode,QColor c);
+
     void on_pushButton_back_clicked();
 
     void on_pushButton_next_clicked();
 
 private:
+    Add *adding;
     Setting *setting;
     MenuTable menu;
     QColor backgroundcolor,barcolor;

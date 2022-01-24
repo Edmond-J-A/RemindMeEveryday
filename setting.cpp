@@ -7,6 +7,7 @@ Setting::Setting(QColor bar,QColor back,QWidget *parent) :
 {
     ui->setupUi(this);
     backgroundcolor=back;
+    this->move(x()+600, y()+500);
     barcolor=bar;
     QString ccolortxt="background-color:rgb("+QString::number(backgroundcolor.red())+"," +QString::number(backgroundcolor.green())+"," +QString::number(backgroundcolor.blue())+") ;";
     ui->changebackButton->setStyleSheet(
@@ -80,6 +81,7 @@ void Setting::on_closeButton_clicked()
 {
     close();
 }
+
 //change the bar color
 void Setting::changebarcolor(QColor c)
 {

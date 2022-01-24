@@ -42,7 +42,7 @@ void MainWindow::initial()
     }
     this->menu.Loadbyfile(this);
     this->menu.Show(this);
-
+    adding=new Add(barcolor,backgroundcolor);
     setting=new Setting(barcolor,backgroundcolor);
     QString barcolortxt="background-color:rgb("+QString::number(barcolor.red())+"," +QString::number(barcolor.green())+"," +QString::number(barcolor.blue())+") ;";
     ui->label->setStyleSheet(
@@ -101,6 +101,7 @@ void MainWindow::on_closeButton_clicked()
 {
     this->menu.Savetofile();
     this->setting->close();
+    this->adding->close();
     QString wrt="";
     string path=getenv("USERPROFILE");
     path+=+"\\AppData\\preference.style";
@@ -138,7 +139,7 @@ void MainWindow::editfinished()
 //test
 void MainWindow::on_pushButton_clicked()
 {
-    if(this->menu.Finditem("")!=-1)
+    /*if(this->menu.Finditem("")!=-1)
     {
         this->menu.Edititem(this->menu.Finditem(""),this,"test","10:00-11:00");
     }
@@ -147,7 +148,8 @@ void MainWindow::on_pushButton_clicked()
         Item temp("test",0,"10:00-11:00",this,true);
         this->menu.Additem(temp);
         this->menu.Show(this);
-    }
+    }*/
+    adding->show();
 }
 
 //this will be called when a check box is checked
