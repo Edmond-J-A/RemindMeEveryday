@@ -1,4 +1,4 @@
-#include"menutable.h"
+ #include"menutable.h"
 #include<QCoreApplication>
 
 //method will make sort uses different way to sort items
@@ -43,19 +43,45 @@ void MenuTable::Show(QWidget *parent)
         temp.Setvisible(1);
         temp.Getledit()->move(30,i*30+25);
         temp.Getcbox()->move(5,i*30+30);
-        this->Additem(temp);
+        this->ShowAdditem(temp);
         i++;
     }
+}
+
+void MenuTable::ShowAdditem(Item newitem)
+{
+    newitem.SetID(this->nowID);
+    this->table.push_back(newitem);
+    this->nowID++;
+    this->Sort();
 }
 
 //add an item
 void MenuTable::Additem(Item newitem)
 {
-
+    for(int i=0;i<int(this->table.size());i++)
+    {
+        if(this->table[i].Getname()=="")
+        {
+            for(int j=0;j<7;j++)
+            {
+                this->table[i].Setrepeat(j,newitem.Getrepeat(j));
+                qDebug()<<newitem.Getrepeat(j);
+            }
+            this->table[i].Setpriority(newitem.Getpriority());
+            this->table[i].Setname(newitem.Getname());
+            this->table[i].Getledit()->setText(QString::fromStdString(newitem.Getname()));
+            this->table[i].Settime(newitem.Gettime());
+            qDebug()<<"test1";
+            this->Sort();
+            return;
+        }
+    }
     newitem.SetID(this->nowID);
     this->table.push_back(newitem);
     this->nowID++;
     this->Sort();
+
 }
 
 //for load function to load items which already have ID
@@ -157,7 +183,6 @@ int MenuTable::Finditem(string name)
     return -1;
 }
 
-
 //save the items to txt when closed
 void MenuTable::Savetofile()
 {
@@ -174,7 +199,13 @@ void MenuTable::Savetofile()
             {
                 continue;
             }
-            wrt+=QString::number(table[i].GetID())+","+QString::fromStdString(table[i].Getname())+","+QString::number(table[i].Getpriority())+","+QString::fromStdString(table[i].Gettime())+","+QString::number(table[i].Getcheckable())+"\n";
+            wrt+=QString::number(table[i].GetID())+","+QString::fromStdString(table[i].Getname())+","+QString::number(table[i].Getpriority())+","+QString::fromStdString(table[i].Gettime())+","+QString::number(table[i].Getcheckable());
+            for(int j=0;j<7;j++)
+            {
+                wrt+=","+QString::number(table[i].Getrepeat(j));
+            }
+            wrt+="\n";
+            qDebug()<<wrt;
             file.write(wrt.toUtf8());
             wrt.clear();
         }
@@ -193,7 +224,12 @@ void MenuTable::Savetofile()
             {
                 continue;
             }
-            wrt+=QString::number(donetable[i].GetID())+","+QString::fromStdString(donetable[i].Getname())+","+QString::number(donetable[i].Getpriority())+","+QString::fromStdString(donetable[i].Gettime())+","+QString::number(donetable[i].Getcheckable())+"\n";
+            wrt+=QString::number(donetable[i].GetID())+","+QString::fromStdString(donetable[i].Getname())+","+QString::number(donetable[i].Getpriority())+","+QString::fromStdString(donetable[i].Gettime())+","+QString::number(donetable[i].Getcheckable());
+            for(int j=0;j<7;j++)
+            {
+                wrt+=","+QString::number(table[i].Getrepeat(j));
+            }
+            wrt+="\n";
             file1.write(wrt.toUtf8());
             wrt.clear();
         }
@@ -207,7 +243,6 @@ void MenuTable::Loadbyfile(QWidget *parent)
     int getidmax=0;
     string path=getenv("USERPROFILE");
     path+="\\AppData\\savetable.item";
-    qDebug()<<QString::fromStdString(path);
     QFile file(QString::fromStdString(path));
     if (!file.open(QIODevice::ReadOnly))
     {
@@ -219,13 +254,21 @@ void MenuTable::Loadbyfile(QWidget *parent)
             QByteArray line = file.readLine();
             QString str(line);
             QStringList sections = str.split(QRegExp("[,]"));
-            if(sections.size()==5)
+            if(sections.size()>=5)
             {
                 if(getidmax<sections[0].toInt())
                 {
                     getidmax=sections[0].toInt();
                 }
-                Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt());
+                bool temprepeat[7]={0};
+                if(sections.size()==12)
+                {
+                    for(int i=0;i<7;i++)
+                    {
+                        temprepeat[i]=sections[5+i].toInt();
+                    }
+                }
+                Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt(),temprepeat);
                 this->AdditemwithoutID(temp);
 
             }
@@ -245,13 +288,21 @@ void MenuTable::Loadbyfile(QWidget *parent)
             QByteArray line = file1.readLine();
             QString str(line);
             QStringList sections = str.split(QRegExp("[,]"));
-            if(sections.size()==5)
+            if(sections.size()>=5)
             {
                 if(getidmax<sections[0].toInt())
                 {
                     getidmax=sections[0].toInt();
                 }
-                Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt());
+                bool temprepeat[7]={0};
+                if(sections.size()==12)
+                {
+                    for(int i=0;i<7;i++)
+                    {
+                        temprepeat[i]=sections[5+i].toInt();
+                    }
+                }
+                Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt(),temprepeat);
                 this->Additemtodone(temp);
             }
         }

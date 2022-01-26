@@ -41,6 +41,7 @@ private slots:
 
     void on_pushButton_next_clicked();
 
+    void receiveitem(string name,int priority,string timeRange,bool checkable=1,bool* repeatmap=NULL);
 private:
     Add *adding;
     Setting *setting;

@@ -5,7 +5,7 @@ Item::Item()
 
 }
 
-Item::Item(string name,int priority,string timeRange,QWidget *parent,bool checkable)
+Item::Item(string name,int priority,string timeRange,QWidget *parent,bool checkable,bool* repeatmap)
 {
     this->name=name;
     this->priority=priority;
@@ -80,9 +80,23 @@ Item::Item(string name,int priority,string timeRange,QWidget *parent,bool checka
                 "}"
                 );
     cbox->resize(31,31);
+    if(repeatmap!=NULL)
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            repeat[i] = repeatmap[i];
+        }
+    }
+    else
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            repeat[i] = 0;
+        }
+    }
 }
 
-Item::Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool checkable)
+Item::Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool checkable,bool* repeatmap)
 {
     this->name=name;
     this->priority=priority;
@@ -158,7 +172,20 @@ Item::Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool
                 "}"
                 );
     cbox->resize(31,31);
-
+    if(repeatmap!=NULL)
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            repeat[i] = repeatmap[i];
+        }
+    }
+    else
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            repeat[i] = 0;
+        }
+    }
 }
 
 void Item::Setvisible(bool visible)

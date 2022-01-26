@@ -50,7 +50,7 @@ void MainWindow::initial()
                 );
     this->setting->changebarcolor(barcolor);
     connect(setting,SIGNAL(sendcolor(int,QColor)),this,SLOT(receivecolor(int,QColor)));
-
+    connect(adding,SIGNAL(senditem(string,int,string,bool,bool*)),this,SLOT(receiveitem(string,int,string,bool,bool*)));
 }
 
 MainWindow::~MainWindow()
@@ -139,16 +139,6 @@ void MainWindow::editfinished()
 //test
 void MainWindow::on_pushButton_clicked()
 {
-    /*if(this->menu.Finditem("")!=-1)
-    {
-        this->menu.Edititem(this->menu.Finditem(""),this,"test","10:00-11:00");
-    }
-    else
-    {
-        Item temp("test",0,"10:00-11:00",this,true);
-        this->menu.Additem(temp);
-        this->menu.Show(this);
-    }*/
     adding->show();
 }
 
@@ -191,4 +181,12 @@ void MainWindow::on_pushButton_back_clicked()
 void MainWindow::on_pushButton_next_clicked()
 {
     this->menu.addpage(this);
+}
+
+void MainWindow::receiveitem(string name,int priority,string timeRange,bool checkable,bool* repeatmap)
+{
+    qDebug()<<"testhere";
+    Item temp(name,priority,timeRange,this,true,repeatmap);
+    this->menu.Additem(temp);
+    this->menu.Show(this);
 }

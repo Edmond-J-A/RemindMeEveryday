@@ -5,7 +5,8 @@
 #include <QtGui>
 #include<QPen>
 #include<QMessageBox>
-
+#include<QDebug>
+using namespace std;
 namespace Ui {
 class Add;
 }
@@ -22,6 +23,11 @@ public:
     void mousePressEvent(QMouseEvent * event);
 private slots:
     void on_closeButton_clicked();
+
+    void on_pushButton_clicked();
+
+signals:
+    void  senditem(string name,int priority,string timeRange,bool checkable=1,bool* repeatmap=NULL);
 
 private:
     Ui::Add *ui;

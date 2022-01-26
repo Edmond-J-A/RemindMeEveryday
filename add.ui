@@ -132,7 +132,7 @@ QPushButton:hover
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="2">
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="nameEdit"/>
     </item>
     <item row="1" column="1">
      <widget class="QLabel" name="label_2">
@@ -167,7 +167,7 @@ font:1000 15pt &quot;黑体&quot;;  </string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QCheckBox" name="checkBox_7">
+         <widget class="QCheckBox" name="checkBox">
           <property name="text">
            <string/>
           </property>
@@ -189,7 +189,7 @@ font:1000 15pt &quot;黑体&quot;;  </string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QCheckBox" name="checkBox_6">
+         <widget class="QCheckBox" name="checkBox_2">
           <property name="text">
            <string/>
           </property>
@@ -211,7 +211,7 @@ font:1000 15pt &quot;黑体&quot;;  </string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
-         <widget class="QCheckBox" name="checkBox_5">
+         <widget class="QCheckBox" name="checkBox_3">
           <property name="text">
            <string/>
           </property>
@@ -255,7 +255,7 @@ font:1000 15pt &quot;黑体&quot;;  </string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
-         <widget class="QCheckBox" name="checkBox_3">
+         <widget class="QCheckBox" name="checkBox_5">
           <property name="text">
            <string/>
           </property>
@@ -277,7 +277,7 @@ font:1000 15pt &quot;黑体&quot;;  </string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
-         <widget class="QCheckBox" name="checkBox_2">
+         <widget class="QCheckBox" name="checkBox_6">
           <property name="text">
            <string/>
           </property>
@@ -299,7 +299,7 @@ font:1000 15pt &quot;黑体&quot;;  </string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="checkBox_7">
           <property name="text">
            <string/>
           </property>
@@ -553,12 +553,6 @@ font:1000 15pt &quot;黑体&quot;;  </string>
     <string>添加</string>
    </property>
   </widget>
-  <zorder>label</zorder>
-  <zorder>closeButton</zorder>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>horizontalLayoutWidget</zorder>
-  <zorder>verticalSpacer</zorder>
-  <zorder>pushButton</zorder>
  </widget>
  <resources>
   <include location="image.qrc"/>

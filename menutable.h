@@ -26,6 +26,7 @@ public:
     void Savetofile();
     void addpage(QWidget *parent);
     void subpage(QWidget *parent);
+    void ShowAdditem(Item newitem);
 };
 
 

@@ -58,3 +58,38 @@ void Add::paintEvent(QPaintEvent *event)
     p1.setPen(drawLine1);
     p1.drawLine(0,110,400,110);
 }
+
+void Add::on_pushButton_clicked()
+{
+    string name=ui->nameEdit->text().toStdString();
+    if(name=="")
+    {
+        return;
+    }
+    QString time1=ui->timeEdit->text(),time2=ui->timeEdit_2->text();
+    QStringList sections1 = time1.split(QRegExp("[:]")),sections2 = time2.split(QRegExp("[:]"));
+    if(sections1[0].toInt()==sections2[0].toInt()&&sections1[1]>sections2[1])
+    {
+        swap(time1,time2);
+        ui->timeEdit->setTime(QTime(sections2[0].toInt(),sections2[1].toInt()));
+        ui->timeEdit_2->setTime(QTime(sections1[0].toInt(),sections1[1].toInt()));
+    }
+    else if(sections1[0].toInt()>sections2[0].toInt())
+    {
+        swap(time1,time2);
+        ui->timeEdit->setTime(QTime(sections2[0].toInt(),sections2[1].toInt()));
+        ui->timeEdit_2->setTime(QTime(sections1[0].toInt(),sections1[1].toInt()));
+    }
+    int priority=ui->spinBox->text().toInt();
+    string timeRange=(time1+"-"+time2).toStdString();
+    bool checkable=1;
+    bool repeatmap[7]={0};
+    repeatmap[0]=ui->checkBox->checkState();
+    repeatmap[1]=ui->checkBox_2->checkState();
+    repeatmap[2]=ui->checkBox_3->checkState();
+    repeatmap[3]=ui->checkBox_4->checkState();
+    repeatmap[4]=ui->checkBox_5->checkState();
+    repeatmap[5]=ui->checkBox_6->checkState();
+    repeatmap[6]=ui->checkBox_7->checkState();
+    emit senditem(name,priority,timeRange,checkable,repeatmap);
+}

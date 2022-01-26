@@ -20,15 +20,14 @@ private:
     bool checkable=1;
     bool isvisible=0;
     int ID;
-    bool done=0;
     bool repeat[7]={0};
     QCheckBox *cbox;
     QLineEdit *ledit;
 public:
     Item();
 
-    Item(string name,int priority,string timeRange,QWidget *parent,bool checkable=1);
-    Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool checkable=1);
+    Item(string name,int priority,string timeRange,QWidget *parent,bool checkable=1,bool* repeatmap=NULL);
+    Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool checkable=1,bool* repeatmap=NULL);
     void Setvisible(bool visible);
     void Edit(string name,int priority,string timeRange,bool checkable);
     int GetID();
@@ -40,6 +39,17 @@ public:
     QLineEdit* Getledit();
     void Settime(string time);
     void Setname(string newname);
+    bool Getrepeat(int index)
+    {
+        if(index>=0&&index<7)
+        {
+            return repeat[index];
+        }
+        else
+        {
+            return 0;
+        }
+    }
     bool Getcheckable()
     {
         return this->checkable;
@@ -51,6 +61,18 @@ public:
     int Getpriority()
     {
         return this->priority;
+    }
+    void Setpriority(int prio)
+    {
+        priority=prio;
+    }
+
+    int Setrepeat(int index,bool state)
+    {
+        if(index<7&&index>=0)
+        {
+            repeat[index]=state;
+        }
     }
 };
 #endif // ITEM_H
