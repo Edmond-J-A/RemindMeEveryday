@@ -125,6 +125,7 @@ void MainWindow::on_closeButton_clicked()
 //set button
 void MainWindow::on_setButton_clicked()
 {
+    adding->close();
     setting->show();
 }
 
@@ -139,6 +140,7 @@ void MainWindow::editfinished()
 //test
 void MainWindow::on_pushButton_clicked()
 {
+    setting->close();
     adding->show();
 }
 
@@ -158,6 +160,8 @@ void MainWindow::receivecolor(int mode,QColor c)
     if(mode==0)
     {
         this->backgroundcolor=c;
+        delete adding;
+        adding=new Add(barcolor,backgroundcolor);
         repaint();
     }
     else if(mode==1)
@@ -167,6 +171,8 @@ void MainWindow::receivecolor(int mode,QColor c)
         ui->label->setStyleSheet(
                     barcolortxt
                     );
+        delete adding;
+        adding=new Add(barcolor,backgroundcolor);
         repaint();
     }
 }

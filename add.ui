@@ -127,7 +127,7 @@ QPushButton:hover
      <x>0</x>
      <y>30</y>
      <width>401</width>
-     <height>311</height>
+     <height>318</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -168,6 +168,36 @@ font:1000 15pt &quot;黑体&quot;;  </string>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QCheckBox" name="checkBox">
+          <property name="styleSheet">
+           <string notr="true">QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -190,6 +220,36 @@ font:1000 15pt &quot;黑体&quot;;  </string>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <widget class="QCheckBox" name="checkBox_2">
+          <property name="styleSheet">
+           <string notr="true">QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -212,6 +272,90 @@ font:1000 15pt &quot;黑体&quot;;  </string>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
          <widget class="QCheckBox" name="checkBox_3">
+          <property name="styleSheet">
+           <string notr="true">QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -234,6 +378,36 @@ font:1000 15pt &quot;黑体&quot;;  </string>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
          <widget class="QCheckBox" name="checkBox_4">
+          <property name="styleSheet">
+           <string notr="true">QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -256,6 +430,36 @@ font:1000 15pt &quot;黑体&quot;;  </string>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
          <widget class="QCheckBox" name="checkBox_5">
+          <property name="styleSheet">
+           <string notr="true">QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -278,6 +482,36 @@ font:1000 15pt &quot;黑体&quot;;  </string>
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
          <widget class="QCheckBox" name="checkBox_6">
+          <property name="styleSheet">
+           <string notr="true">QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -300,6 +534,36 @@ font:1000 15pt &quot;黑体&quot;;  </string>
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
          <widget class="QCheckBox" name="checkBox_7">
+          <property name="styleSheet">
+           <string notr="true">QCheckBox{
+	border: none;
+}
+QCheckBox::indicator{
+	background-color: rgba(255, 255, 255, 0);
+	border: 0px solid #b1b1b1;
+	width: 25px;
+	height: 25px;
+}
+QCheckBox:enabled:checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:!checked{
+	color: rgb(255, 255, 255);
+}
+QCheckBox:enabled:hover{
+	color: rgb(0, 200, 0);
+}
+QCheckBox:!enabled{
+	color: rgb(80, 80, 80);
+}
+QCheckBox::indicator:unchecked {
+	image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);
+}
+
+QCheckBox::indicator:checked {
+	image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);
+}</string>
+          </property>
           <property name="text">
            <string/>
           </property>
