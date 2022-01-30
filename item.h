@@ -23,6 +23,7 @@ private:
     bool repeat[7]={0};
     QCheckBox *cbox;
     QLineEdit *ledit;
+    bool isdone=0;
 public:
     Item();
 
@@ -73,6 +74,14 @@ public:
         {
             repeat[index]=state;
         }
+    }
+    bool GetDone()
+    {
+        return this->isdone;
+    }
+    void SetDone(bool state)
+    {
+        this->isdone=state;
     }
 };
 #endif // ITEM_H

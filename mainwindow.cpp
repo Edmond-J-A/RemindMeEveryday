@@ -11,10 +11,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::initial()
 {
+    QString dest=getenv("USERPROFILE");
+    dest+=+"\\AppData\\Local\\RME";
+    QDir dir;
+    if(!dir.exists(dest))
+    {
+        dir.mkpath(dest);
+    }
     backgroundcolor=QColor(255,247,209);
     barcolor=QColor(255, 213, 129);
     string path=getenv("USERPROFILE");
-    path+="\\AppData\\preference.style";
+    path+="\\AppData\\Local\\RME\\preference.style";
     QFile file(QString::fromStdString(path));
     if (!file.open(QIODevice::ReadOnly))
     {
@@ -104,7 +111,7 @@ void MainWindow::on_closeButton_clicked()
     this->adding->close();
     QString wrt="";
     string path=getenv("USERPROFILE");
-    path+=+"\\AppData\\preference.style";
+    path+=+"\\AppData\\Local\\RME\\preference.style";
     QFile file(QString::fromStdString(path));
     file.resize(0);
     if(file.open( QIODevice::ReadWrite| QIODevice::Text))

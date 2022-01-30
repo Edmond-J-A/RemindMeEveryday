@@ -108,6 +108,7 @@ void MenuTable::Doneitem(int itemID,QWidget *parent)
             Item temp(this->table[i]);
             this->table[i].Setvisible(0);
             this->table.erase(this->table.begin()+i);
+            temp.SetDone(1);
             this->donetable.push_back(temp);
             break;
         }
@@ -188,7 +189,7 @@ void MenuTable::Savetofile()
 {
     QString wrt="";
     string path=getenv("USERPROFILE");
-    path+=+"\\AppData\\savetable.item";
+    path+=+"\\AppData\\Local\\RME\\savetable.item";
     QFile file(QString::fromStdString(path));
     file.resize(0);
     if(file.open( QIODevice::ReadWrite| QIODevice::Text))
@@ -204,20 +205,11 @@ void MenuTable::Savetofile()
             {
                 wrt+=","+QString::number(table[i].Getrepeat(j));
             }
-            wrt+="\n";
-            qDebug()<<wrt;
+            wrt+=","+QString::number(table[i].GetDone())+"\n";
             file.write(wrt.toUtf8());
             wrt.clear();
         }
-
-    }
-    wrt.clear();
-    path=getenv("USERPROFILE");
-    path+="\\AppData\\savedonetable.item";
-    QFile file1(QString::fromStdString(path));
-    file1.resize(0);
-    if(file1.open( QIODevice::ReadWrite))
-    {
+        wrt.clear();
         for(int i=0;i<int(donetable.size());i++)
         {
             if(donetable[i].Getname().size()==0)
@@ -227,14 +219,14 @@ void MenuTable::Savetofile()
             wrt+=QString::number(donetable[i].GetID())+","+QString::fromStdString(donetable[i].Getname())+","+QString::number(donetable[i].Getpriority())+","+QString::fromStdString(donetable[i].Gettime())+","+QString::number(donetable[i].Getcheckable());
             for(int j=0;j<7;j++)
             {
-                wrt+=","+QString::number(table[i].Getrepeat(j));
+                wrt+=","+QString::number(donetable[i].Getrepeat(j));
             }
-            wrt+="\n";
-            file1.write(wrt.toUtf8());
+            wrt+=","+QString::number(donetable[i].GetDone())+"\n";
+            file.write(wrt.toUtf8());
             wrt.clear();
         }
-
     }
+
 }
 
 //read items from txt when started
@@ -242,7 +234,7 @@ void MenuTable::Loadbyfile(QWidget *parent)
 {
     int getidmax=0;
     string path=getenv("USERPROFILE");
-    path+="\\AppData\\savetable.item";
+    path+="\\AppData\\Local\\RME\\savetable.item";
     QFile file(QString::fromStdString(path));
     if (!file.open(QIODevice::ReadOnly))
     {
@@ -261,7 +253,7 @@ void MenuTable::Loadbyfile(QWidget *parent)
                     getidmax=sections[0].toInt();
                 }
                 bool temprepeat[7]={0};
-                if(sections.size()==12)
+                if(sections.size()==13)
                 {
                     for(int i=0;i<7;i++)
                     {
@@ -269,41 +261,17 @@ void MenuTable::Loadbyfile(QWidget *parent)
                     }
                 }
                 Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt(),temprepeat);
-                this->AdditemwithoutID(temp);
-
-            }
-        }
-    }
-    path=getenv("USERPROFILE");
-    path+="\\AppData\\savedonetable.item";
-    QFile file1(QString::fromStdString(path));
-    if (!file1.open(QIODevice::ReadOnly))
-    {
-
-    }
-    else
-    {
-        while (!file1.atEnd())
-        {
-            QByteArray line = file1.readLine();
-            QString str(line);
-            QStringList sections = str.split(QRegExp("[,]"));
-            if(sections.size()>=5)
-            {
-                if(getidmax<sections[0].toInt())
+                if(sections[12].toInt()==1)
                 {
-                    getidmax=sections[0].toInt();
+                    temp.SetDone(1);
+                    this->Additemtodone(temp);
                 }
-                bool temprepeat[7]={0};
-                if(sections.size()==12)
+                else
                 {
-                    for(int i=0;i<7;i++)
-                    {
-                        temprepeat[i]=sections[5+i].toInt();
-                    }
+                    temp.SetDone(0);
+                    this->AdditemwithoutID(temp);
+
                 }
-                Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt(),temprepeat);
-                this->Additemtodone(temp);
             }
         }
     }

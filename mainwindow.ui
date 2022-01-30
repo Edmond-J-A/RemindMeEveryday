@@ -215,8 +215,7 @@ QPushButton:pressed{
 	color:rgba(0,0,0,100);
 }
 //鼠标悬停样式
-QPushButton:hover
-{
+QPushButton:hover{
 	background-color:rgba(0,0,255,100);
 	border-color:rgba(255,255,255,200);
 	color:rgba(0,0,0,200);

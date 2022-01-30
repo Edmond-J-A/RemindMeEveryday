@@ -13,6 +13,30 @@ Add::Add(QColor bar,QColor back,QWidget *parent) :
     ui->label->setStyleSheet(
                 ccolortxt
                 );
+    ccolortxt="background-color:rgb("+QString::number(barcolor.red())+"," +QString::number(barcolor.green())+"," +QString::number(barcolor.blue())+") ;";
+    QString hovercolortxt="background-color:rgb("+QString::number(backgroundcolor.red())+"," +QString::number(backgroundcolor.green())+"," +QString::number(backgroundcolor.blue())+") ;";
+    ui->pushButton->setStyleSheet(
+                "QPushButton{"
+                    +ccolortxt+
+                    "border-style:outset;"
+                    "border-width:4px;"
+                    "border-radius:20px;"
+                    "border-color:rgba(0,0,0);"
+                    "color:rgba(0,0,0,100);"
+                    "padding:1px;"
+                    "font:1000 15pt \"黑体\";"
+                "}"
+                    "QPushButton:pressed{"
+                        +hovercolortxt+
+                        "border-style:outset;"
+                        "border-width:4px;"
+                        "border-radius:20px;"
+                        "border-color:rgba(0,0,0);"
+                        +hovercolortxt+
+                        "padding:1px;"
+                        "font:1000 15pt \"黑体\";"
+                    "}"
+                );
 }
 
 Add::~Add()
