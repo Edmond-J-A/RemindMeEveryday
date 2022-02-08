@@ -1,6 +1,12 @@
  #include"menutable.h"
 #include<QCoreApplication>
 
+
+int week_to_int()
+{
+
+}
+
 //method will make sort uses different way to sort items
 void MenuTable::Sort(int method)
 {
@@ -233,6 +239,7 @@ void MenuTable::Savetofile()
 void MenuTable::Loadbyfile(QWidget *parent)
 {
     int getidmax=0;
+
     string path=getenv("USERPROFILE");
     path+="\\AppData\\Local\\RME\\savetable.item";
     QFile file(QString::fromStdString(path));
@@ -261,16 +268,20 @@ void MenuTable::Loadbyfile(QWidget *parent)
                     }
                 }
                 Item temp(sections[1].toStdString(),sections[2].toInt(),sections[3].toStdString(),parent,sections[0].toInt(),sections[4].toInt(),temprepeat);
-                if(sections[12].toInt()==1)
+                if(sections[12].toInt()==0&&temprepeat[current_week])
                 {
-                    temp.SetDone(1);
+                    temp.SetDone(0);
+                    this->AdditemwithoutID(temp);
+                }
+                else if(!temprepeat[current_week])
+                {
+                    temp.SetDone(0);
                     this->Additemtodone(temp);
                 }
                 else
                 {
-                    temp.SetDone(0);
-                    this->AdditemwithoutID(temp);
-
+                    temp.SetDone(1);
+                    this->Additemtodone(temp);
                 }
             }
         }

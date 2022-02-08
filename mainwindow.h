@@ -44,6 +44,7 @@ private slots:
     void receiveitem(string name,int priority,string timeRange,bool checkable=1,bool* repeatmap=NULL);
 private:
     Add *adding;
+    QString current_week;
     Setting *setting;
     MenuTable menu;
     QColor backgroundcolor,barcolor;
