@@ -7,10 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     initial();
+    day_pass=startTimer(1000);
 }
 
 void MainWindow::initial()
 {
+    QDateTime current_date_time = QDateTime::currentDateTime();
+    QString current_date = current_date_time.toString("yyyy.MM.dd hh:mm:ss ddd");
+    ui->label_2->setText(current_date);
     QString dest=getenv("USERPROFILE");
     dest+=+"\\AppData\\Local\\RME";
     QDir dir;
@@ -202,4 +206,20 @@ void MainWindow::receiveitem(string name,int priority,string timeRange,bool chec
     Item temp(name,priority,timeRange,this,true,repeatmap);
     this->menu.Additem(temp);
     this->menu.Show(this);
+}
+
+void MainWindow::timerEvent(QTimerEvent *event)
+{
+    if(event->timerId()==day_pass)
+    {
+        QDateTime current_date_time = QDateTime::currentDateTime();
+        QString temp = current_date_time.toString("ddd");
+        QString current_date = current_date_time.toString("yyyy.MM.dd hh:mm:ss ddd");
+        ui->label_2->setText(current_date);
+        if(week!=temp)
+        {
+            week=temp;
+            //更新事项
+        }
+    }
 }

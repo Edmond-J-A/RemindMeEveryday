@@ -73,10 +73,10 @@ Item::Item(string name,int priority,string timeRange,QWidget *parent,bool checka
                 "}"
 
                 "QCheckBox::indicator:unchecked {"
-                        "image: url(:/new/prefix1/resource/treasurebox-blank.png);"
+                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
                 "}"
                 "QCheckBox::indicator:checked {"
-                        "image: url(:/new/prefix1/resource/treasurebox-marked.png);"
+                        "image: url(:/new/prefix1/resource/checkbox-marked-circle-outline.png);"
                 "}"
                 );
     cbox->resize(31,31);
@@ -165,10 +165,10 @@ Item::Item(string name,int priority,string timeRange,QWidget *parent,int ID,bool
                 "}"
 
                 "QCheckBox::indicator:unchecked {"
-                        "image: url(:/new/prefix1/resource/treasurebox-blank.png);"
+                        "image: url(:/new/prefix1/resource/checkbox-blank-circle-outline .png);"
                 "}"
                 "QCheckBox::indicator:checked {"
-                        "image: url(:/new/prefix1/resource/treasurebox-marked.png);"
+                        "image: url(:/new/prefix1/resource/:/new/prefix1/resource/checkbox-marked-circle-outline.png.png);"
                 "}"
                 );
     cbox->resize(31,31);

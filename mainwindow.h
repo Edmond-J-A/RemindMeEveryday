@@ -24,6 +24,7 @@ public:
     void mouseMoveEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
     void initial();
+    void timerEvent(QTimerEvent *event);
 private slots:
     void on_closeButton_clicked();
 
@@ -50,6 +51,8 @@ private:
     QColor backgroundcolor,barcolor;
     QPoint dragPosition;
     Ui::MainWindow *ui;
+    int day_pass;
+    QString week;
 };
 
 #endif // MAINWINDOW_H
